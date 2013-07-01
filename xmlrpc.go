@@ -15,7 +15,7 @@ import (
 
 func Request(url string, method string, params ...interface{}) []interface{} {
 	request := Serialize(method, params)
-	log.Printf("%s", request)
+	// log.Printf("%s", request)
 	buffer := bytes.NewBuffer([]byte(request))
 
 	response, err := http.Post(url, "text/xml", buffer)
@@ -88,7 +88,7 @@ func Unserialize(buffer io.ReadCloser) []interface{} {
 	if err != nil {
 		log.Fatal(err)
 	}
-	log.Printf("%s", body)
+	// log.Printf("%s", body)
 
 	var response MethodResponse
 	xml.Unmarshal(body, &response)
