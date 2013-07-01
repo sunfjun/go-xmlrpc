@@ -103,7 +103,7 @@ func Unserialize(buffer io.ReadCloser) []interface{} {
 
 func Serialize(method string, params []interface{}) string {
 	request := "<methodCall>"
-	request += fmt.Sprintf("<methodName>wp.%s</methodName>", method)
+	request += fmt.Sprintf("<methodName>%s</methodName>", method)
 	request += "<params>"
 
 	for _, value := range params {
